@@ -46,14 +46,14 @@ JobPoint is a modern, responsive, and intuitive job portal designed to simplify 
 
 /src
 ├── components
-│ ├── Navbar.jsx
-│ ├── Card.jsx
-│ ├── Job.jsx
-│ └── Footer.jsx
+│   ├── Navbar.jsx
+│   ├── Card.jsx
+│   ├── Job.jsx
+│   └── Footer.jsx
 ├── pages
-│ ├── Home.jsx
-│ ├── Login.jsx
-│ └── PostJob.jsx
+│   ├── Home.jsx
+│   ├── Login.jsx
+│   └── PostJob.jsx
 ├── assets
 ├── App.js
 └── main.jsx
@@ -68,9 +68,11 @@ JobPoint is a modern, responsive, and intuitive job portal designed to simplify 
 Contributions are welcome.
 
 
-Contact
+📞Contact
 
 For any queries or suggestions, 
-feel free to reach out.
+Feel free to reach out.
+
+
 
 Happy Coding! ✨
