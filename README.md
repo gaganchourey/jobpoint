@@ -62,12 +62,15 @@ JobPoint is a modern, responsive, and intuitive job portal designed to simplify 
 
 <img width="1918" height="950" alt="image" src="https://github.com/user-attachments/assets/b576ed65-45be-4b49-8d38-af9b1b2cc117" />
 
+
 🤝 Contributing
 
 Contributions are welcome.
-For major updates, open an Issue first and discuss the change.
+
 
 Contact
 
-For any queries or suggestions, feel free to reach out.
+For any queries or suggestions, 
+feel free to reach out.
+
 Happy Coding! ✨
