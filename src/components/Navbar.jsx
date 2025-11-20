@@ -101,7 +101,7 @@ const Navbar = () => {
         {/* LOGIN ICON */}
         <Link to="/login" className="flex justify-center w-full sm:w-auto">
           <CircleUserRound size={35} strokeWidth={1.5} />
-        </Link>
+        </Link>   
       </div>
     </nav>
   );

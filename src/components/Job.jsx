@@ -7,6 +7,7 @@ const Job = (props) => {
 
   return (
     <div
+    id="jobs-section"
       className="
         bg-white rounded-2xl shadow-lg p-5 
         w-[330px] h-full  
