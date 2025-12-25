@@ -7,36 +7,29 @@ const Navbar = () => {
   const [hidden, setHidden] = useState(false);
   const [lastScroll, setLastScroll] = useState(0);
 
-  // Detect scroll for background color
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Detect scroll direction for hiding navbar
-  useEffect(() => {
-    const handleHideOnScroll = () => {
       const currentScroll = window.scrollY;
 
-      if (currentScroll > lastScroll && currentScroll > 50) {
-        setHidden(true); // scrolling down → hide navbar
+      // Background change
+      setScrolled(currentScroll > 20);
+
+      // Hide ONLY on mobile screens
+      if (window.innerWidth <= 768) {
+        if (currentScroll > lastScroll && currentScroll > 50) {
+          setHidden(true);   // Scroll down → hide
+        } else {
+          setHidden(false);  // Scroll up → show
+        }
       } else {
-        setHidden(false); // scrolling up → show navbar
+        setHidden(false); // Desktop always visible
       }
 
       setLastScroll(currentScroll);
     };
 
-    window.addEventListener("scroll", handleHideOnScroll);
-    return () => window.removeEventListener("scroll", handleHideOnScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
 
   const scrollToJobs = () => {
@@ -49,7 +42,7 @@ const Navbar = () => {
   return (
     <nav
       className={`
-        w-full py-3 px-4 flex flex-wrap items-center justify-between gap-3 
+        w-full py-3 px-4 flex flex-wrap items-center justify-between gap-3
         transition-all duration-500 sticky top-0 z-50
         ${scrolled ? "bg-purple-800 shadow-lg" : "bg-purple-500"}
         ${hidden ? "-translate-y-full" : "translate-y-0"}
@@ -62,24 +55,22 @@ const Navbar = () => {
           alt="JobPoint Logo"
           className="w-12 h-12 object-contain"
         />
-        <h1 className="text-2xl font-bold text-white">
-          Job<span>point</span>
-        </h1>
+        <h1 className="text-2xl font-bold text-white">Job<span>point</span></h1>
       </Link>
 
-      {/* RIGHT SIDE — SEARCH + FILTER + PROFILE */}
+      {/* RIGHT SECTION */}
       <div className="flex flex-wrap items-center gap-3 w-full md:w-auto justify-center md:justify-end">
 
         {/* SEARCH INPUT */}
         <input
           type="text"
           placeholder="Search jobs or companies..."
-          className="border border-gray-300 rounded-md px-3 py-2 w-full sm:w-56 
+          className="border border-gray-300 rounded-md px-3 py-2 w-full sm:w-56
                      focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
         />
 
         {/* JOB TYPE DROPDOWN */}
-        <select className="border border-gray-300 rounded-md px-2 py-2 w-full sm:w-auto 
+        <select className="border border-gray-300 rounded-md px-2 py-2 w-full sm:w-auto
                            focus:outline-none focus:ring-2 focus:ring-blue-600 transition">
           <option>Job Type</option>
           <option value="fulltime">Full-Time</option>
@@ -91,8 +82,8 @@ const Navbar = () => {
         {/* SEARCH BUTTON */}
         <button
           onClick={scrollToJobs}
-          className="bg-green-50 text-blue-900 px-4 py-2 rounded 
-                     hover:bg-blue-600 hover:text-white active:scale-95 transition 
+          className="bg-green-50 text-blue-900 px-4 py-2 rounded
+                     hover:bg-blue-600 hover:text-white active:scale-95 transition
                      w-full sm:w-auto"
         >
           Search
@@ -101,7 +92,7 @@ const Navbar = () => {
         {/* LOGIN ICON */}
         <Link to="/login" className="flex justify-center w-full sm:w-auto">
           <CircleUserRound size={35} strokeWidth={1.5} />
-        </Link>   
+        </Link>
       </div>
     </nav>
   );

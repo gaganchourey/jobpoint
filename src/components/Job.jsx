@@ -10,10 +10,11 @@ const Job = (props) => {
     id="jobs-section"
       className="
         bg-white rounded-2xl shadow-lg p-5 
-        w-[330px] h-full  
+        sm:w-[28%] md:w-[70%] lg:w-[330px]
+        h-full  
         hover:shadow-2xl hover:-translate-y-1 
         transition-all duration-300 cursor-pointer 
-        flex flex-col
+        flex flex-col 
       "
     >
       {/* TOP */}
